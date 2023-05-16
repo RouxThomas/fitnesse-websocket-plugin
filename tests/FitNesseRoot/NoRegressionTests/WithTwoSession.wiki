@@ -1,0 +1,37 @@
+---
+Test
+---
+|script        |!-WebSocketServer-!   |
+|startOnAddress|localhost|andPort|8096|
+
+
+|script   |!-WebSocketClient-!     |10    |
+|connectTo|ws://localhost:8096/sameAnswer|
+|sendMsg  |session 10 message             |
+
+|script   |!-WebSocketClient-!     |20    |
+|connectTo|ws://localhost:8096/sameAnswer|
+|sendMsg  |session 20 message             |
+
+|script   |!-WebSocketClient-!     |30    |
+|connectTo|ws://localhost:8096/sameAnswer|
+|sendMsg  |session 30 message             |
+
+
+|script      |Wait|
+|Milliseconds|50  |
+
+|script|!-WebSocketClient-!|10                |
+|ensure|receivedMsg        |session 10 message|
+|close                                       |
+
+|script|!-WebSocketClient-!|20                |
+|ensure|receivedMsg        |session 20 message|
+|close                                       |
+
+|script|!-WebSocketClient-!|30                |
+|ensure|receivedMsg        |session 30 message|
+|close                                       |
+
+|script|!-WebSocketServer-!|
+|stop                      |

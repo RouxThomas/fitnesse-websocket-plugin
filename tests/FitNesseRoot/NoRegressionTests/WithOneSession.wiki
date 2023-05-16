@@ -1,0 +1,21 @@
+---
+Test
+---
+|script        |!-WebSocketServer-!   |
+|startOnAddress|localhost|andPort|8096|
+
+
+|script   |!-WebSocketClient-!     |1    |
+|connectTo|ws://localhost:8096/sameAnswer|
+|sendMsg  |session message               |
+
+|script      |Wait|
+|Milliseconds|50  |
+
+|script|!-WebSocketClient-!|1              |
+|ensure|receivedMsg        |session message|
+|close                                     |
+
+
+|script|!-WebSocketServer-!|
+|stop                      |

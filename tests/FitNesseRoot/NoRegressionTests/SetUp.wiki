@@ -1,0 +1,6 @@
+|Import                                  |
+|fitnesse.websocket.plugin.fixtures      |
+|fitnesse.websocket.plugin.utils         |
+|fitnesse.websocket.plugin.tests.fixtures|
+|fitnesse.websocket.plugin.tests.utils   |
+

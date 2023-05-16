@@ -1,0 +1,5 @@
+!1 Welcome to [[FitNesse][FitNesse.FitNesse]] !-WebSocket-! !img -w 100 files/img/logo-websocket.png plugin !
+
+!3 .NoRegressionTests
+
+!note Fitnesse version ${FITNESSE_VERSION}

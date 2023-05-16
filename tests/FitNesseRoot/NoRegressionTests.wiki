@@ -1,0 +1,13 @@
+---
+Suite
+---
+
+!define TEST_SYSTEM {slim} 
+!define slim.port {0}
+!define slim.debug.timeout {120}
+!define REMOTE_DEBUG_COMMAND {java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8111 -cp %p %m}
+
+
+!include -c .GradleClassPath
+
+!contents -R5 -p -f -h
