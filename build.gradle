@@ -123,13 +123,13 @@ artifacts {
     archives sourcesJar
 }
 
-task acceptanceTests(type: JavaExec) {
+task noRegTests(type: JavaExec) {
     dependsOn writeFitNesseClasspath
     dependsOn jar
 
     classpath = sourceSets.main.runtimeClasspath
     main "fitnesseMain.FitNesseMain"
-    args "-d", "tests", "-p", "8001", "-e", "0", "-o", "-c" , "MySuite?suite&format=text"
+    args "-d", "tests", "-p", "8001", "-e", "0", "-o", "-c" , "NoRegressionTests?suite&format=text"
 }
 
 task run(type: JavaExec) {
