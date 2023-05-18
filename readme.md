@@ -6,6 +6,9 @@
 To be able send and check received messages using websocket
 
 
+#### Dependencies
+to see 'build.gradle' file
+
 #### How to
  * build test executable : 
 ```shell_session
