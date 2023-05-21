@@ -1,13 +1,13 @@
 ---
 Test
 ---
-|script        |!-WebSocketServer-!   |
-|startOnAddress|localhost|andPort|8096|
+|script        |!-WebSocketServer-!    |
+|startOnAddress|localhost|andPort|39856|
 
 
-|script   |!-WebSocketClient-!     |1    |
-|connectTo|ws://localhost:8096/sameAnswer|
-|sendMsg  |session message               |
+|script   |!-WebSocketClient-!      |1    |
+|connectTo|ws://localhost:39856/sameAnswer|
+|sendMsg  |session message                |
 
 |script      |Wait|
 |Milliseconds|50  |

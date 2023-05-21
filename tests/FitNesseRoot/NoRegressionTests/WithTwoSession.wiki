@@ -2,19 +2,19 @@
 Test
 ---
 |script        |!-WebSocketServer-!   |
-|startOnAddress|localhost|andPort|8096|
+|startOnAddress|localhost|andPort|39856|
 
 
 |script   |!-WebSocketClient-!     |10    |
-|connectTo|ws://localhost:8096/sameAnswer|
+|connectTo|ws://localhost:39856/sameAnswer|
 |sendMsg  |session 10 message             |
 
 |script   |!-WebSocketClient-!     |20    |
-|connectTo|ws://localhost:8096/sameAnswer|
+|connectTo|ws://localhost:39856/sameAnswer|
 |sendMsg  |session 20 message             |
 
 |script   |!-WebSocketClient-!     |30    |
-|connectTo|ws://localhost:8096/sameAnswer|
+|connectTo|ws://localhost:39856/sameAnswer|
 |sendMsg  |session 30 message             |
 
 
