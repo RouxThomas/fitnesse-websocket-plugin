@@ -1,0 +1,2 @@
+page generated via gradle task !-WriteFitNesseClasspath!-!, do not modify manualy.
+!path build/libs/*.jar

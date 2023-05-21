@@ -30,4 +30,4 @@ jobs:
     - name: Build with Gradle
       run: gradle build --no-daemon
     - name: Run no regression tests
-      run: gradle run --no-daemon
+      run: gradle noRegTests --no-daemon
