@@ -127,14 +127,14 @@ task noRegTests(type: JavaExec) {
     dependsOn jar
 
     classpath = sourceSets.main.runtimeClasspath
-    main "fitnesseMain.FitNesseMain"
-    args "-d", "tests", "-e", "0", "-o", "-c" , "NoRegressionTests?suite&format=html"
+    mainClass = "fitnesseMain.FitNesseMain"
+    args "-d", "tests", "-e", "0", "-o", "-c" , "NoRegressionTests?suite&format=text"
 }
 
 task run(type: JavaExec) {
     dependsOn writeFitNesseClasspath
     dependsOn jar
     classpath = sourceSets.main.runtimeClasspath
-    main "fitnesseMain.FitNesseMain"
+    mainClass = "fitnesseMain.FitNesseMain"
     args "-d", "tests", "-p", "8001", "-e", "0", "-o"
 }
