@@ -74,7 +74,7 @@ sourceSets {
 
 task("writeFitNesseClasspath", type: WriteFitNesseClasspath) {
     FileCollection customClassPath = configurations.runtimeClasspath + configurations.provided
-    pagePath = project.file("tests/FitNesseRoot/GradleClasspath")
+    pagePath = project.file("${projectDir}/tests/FitNesseRoot/GradleClasspath")
 }
 
 class WriteFitNesseClasspath extends DefaultTask {
@@ -92,7 +92,7 @@ class WriteFitNesseClasspath extends DefaultTask {
 			contentTxt.createNewFile()
 			contentTxt.withWriter { writer ->
 				writer.writeLine("page generated via gradle task !-WriteFitNesseClasspath!-!, do not modify manualy.")
-				writer.writeLine("!path build/libs/*.jar")
+				writer.writeLine("!path ${project.projectDir}/build/libs/*.jar")
 				customClassPath.each { d ->
 					writer.writeLine("!path $d")
 				}

@@ -1,2 +1,2 @@
 page generated via gradle task !-WriteFitNesseClasspath!-!, do not modify manualy.
-!path build/libs/*.jar
+!path D:\perso\fitnesse-websocket-plugin/build/libs/*.jar
