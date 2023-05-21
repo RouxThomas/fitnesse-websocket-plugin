@@ -92,7 +92,7 @@ class WriteFitNesseClasspath extends DefaultTask {
 			contentTxt.createNewFile()
 			contentTxt.withWriter { writer ->
 				writer.writeLine("page generated via gradle task !-WriteFitNesseClasspath!-!, do not modify manualy.")
-				writer.writeLine("!path build/libs/*.jar")
+				writer.writeLine("!path ${project.projectDir}/build/libs/*.jar")
 				customClassPath.each { d ->
 					writer.writeLine("!path $d")
 				}
