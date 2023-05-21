@@ -128,7 +128,7 @@ task noRegTests(type: JavaExec) {
 
     classpath = sourceSets.main.runtimeClasspath
     main "fitnesseMain.FitNesseMain"
-    args "-d", "tests", "-e", "0", "-o", "-c" , "NoRegressionTests?suite&format=text"
+    args "-d", "tests", "-e", "0", "-o", "-c" , "NoRegressionTests?suite&format=html"
 }
 
 task run(type: JavaExec) {
