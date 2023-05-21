@@ -30,7 +30,4 @@ jobs:
     - name: Build with Gradle
       run: gradle build --no-daemon
     - name: Run no regression tests
-      run: gradle noRegTests --no-daemon
-    - name: display custom fiel path
-      if: always()
-      run: cat tests/FitNesseRoot/GradleClasspath/content.txt ; ls /home/runner/work/fitnesse-websocket-plugin/fitnesse-websocket-plugin/build/libs/
+      run: gradle noRegTests
