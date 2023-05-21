@@ -31,3 +31,5 @@ jobs:
       run: gradle build --no-daemon
     - name: Run no regression tests
       run: gradle noRegTests --no-daemon
+    - name: display custom fiel path
+      run: cat tests/FitNesseRoot/GradleClasspath/content.txt
