@@ -5,9 +5,6 @@ import jakarta.websocket.DeploymentException;
 
 public class WebSocketServer {
 
-	public WebSocketServer() {
-	}
-
 	public void startOnAddressAndPort(String address, String port)
 			throws jakarta.websocket.DeploymentException {
 		WSServerProvider.getInstance().getServer()

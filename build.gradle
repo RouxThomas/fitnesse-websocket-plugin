@@ -9,7 +9,6 @@
 
 
 plugins {
-    id 'com.github.johnrengelman.shadow' version '2.0.2'
     id 'java-library'
     id 'base'
     id 'eclipse'
@@ -74,28 +73,34 @@ sourceSets {
 }
 
 task("writeFitNesseClasspath", type: WriteFitNesseClasspath) {
-    classpath = configurations.runtimeClasspath + configurations.provided
+    FileCollection customClassPath = configurations.runtimeClasspath + configurations.provided
     pagePath = project.file("tests/FitNesseRoot/GradleClasspath")
 }
 
 class WriteFitNesseClasspath extends DefaultTask {
-    @Input
-    def classpath
+    @InputFile
+	@Optional
+    FileCollection customClassPath
 
     @OutputDirectory
     File pagePath
 
     @TaskAction
     def generatePage() {
-        def contentTxt = project.file("${pagePath}/content.txt")
-        contentTxt.createNewFile()
-        contentTxt.withWriter { writer ->
-            writer.writeLine("page generated via gradle task !-WriteFitNesseClasspath!-!, do not modify manualy.")
-            writer.writeLine("!path build/libs/*.jar")
-            classpath.each { d ->
-                writer.writeLine("!path $d")
-            }
+        try{
+			def contentTxt = project.file("${pagePath}/content.txt")
+			contentTxt.createNewFile()
+			contentTxt.withWriter { writer ->
+				writer.writeLine("page generated via gradle task !-WriteFitNesseClasspath!-!, do not modify manualy.")
+				writer.writeLine("!path ${project.projectDir}/build/libs/*.jar")
+				customClassPath.each { d ->
+					writer.writeLine("!path $d")
+				}
+			}
+		} catch (IOException e) {
+			logger.error(e.getMessage(), e);
         }
+		
     }
 }
 
@@ -115,7 +120,6 @@ jar {
 tasks.withType(Jar).all { duplicatesStrategy 'exclude' }
 
 task sourcesJar(type: Jar) {
-    classifier = 'sources'
     from sourceSets.main.allSource
 }
 
@@ -128,14 +132,14 @@ task noRegTests(type: JavaExec) {
     dependsOn jar
 
     classpath = sourceSets.main.runtimeClasspath
-    main "fitnesseMain.FitNesseMain"
-    args "-d", "tests", "-p", "8001", "-e", "0", "-o", "-c" , "NoRegressionTests?suite&format=text"
+    mainClass = "fitnesseMain.FitNesseMain"
+    args "-d", "tests", "-e", "0", "-o", "-c" , "NoRegressionTests?suite&format=html"
 }
 
 task run(type: JavaExec) {
     dependsOn writeFitNesseClasspath
     dependsOn jar
     classpath = sourceSets.main.runtimeClasspath
-    main "fitnesseMain.FitNesseMain"
+    mainClass = "fitnesseMain.FitNesseMain"
     args "-d", "tests", "-p", "8001", "-e", "0", "-o"
 }
