@@ -26,4 +26,4 @@ $ gradle noRegTests
 ```
 
 ## Licence
-CPL 1.0
+CPL-1.0
