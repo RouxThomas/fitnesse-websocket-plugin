@@ -1,4 +1,4 @@
-# [FitNesse](http://docs.fitnesse.org/FrontPage) websocket plugin
+# [FitNesse](https://github.com/unclebob/fitnesse) websocket plugin
 
 ![websocket](tests/FitNesseRoot/files/img/logo-websocket.png)
 
@@ -24,3 +24,6 @@ $ gradle run
 ```shell_session
 $ gradle noRegTests
 ```
+
+## Licence
+CPL 1.0
